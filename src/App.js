@@ -1,25 +1,64 @@
-import logo from './logo.svg';
+import {useState} from "react";
+
 import './App.css';
+import UserList from "./Components/Users/UserList";
+import AddUser from "./Components/AddUser/AddUser";
+
+const DUMMY_VALUE = [
+	{
+		id: 0,
+		name: "Abhirup",
+		roll: 31,
+		marks: 89
+	},
+	{
+		id: 1,
+		name: "Sujan",
+		roll: 30,
+		marks: 88
+	},
+	{
+		id: 2,
+		name: "Tamonut",
+		roll: 10,
+		marks: 88
+	}
+];
+
+function Counter() {
+	let count = 3;
+	this.increment = function() {
+		count ++;
+	}
+	this.getCount = function() {
+		return count;
+	}
+}
+const id = new Counter();
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	const [data, setData] = useState(DUMMY_VALUE);
+
+	function addUserHandler(user) {
+		user = {
+			id: id.getCount(),
+			...user
+		};
+		id.increment();
+
+		setData((prev) => [
+			...prev,
+			user
+		])
+		console.log(user);
+	}
+
+	return (
+		<div>
+			<AddUser onSaveUser={addUserHandler} />
+			<UserList users={data} />
+		</div>
+	);
 }
 
 export default App;

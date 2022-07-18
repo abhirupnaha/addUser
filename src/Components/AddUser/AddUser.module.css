@@ -1,0 +1,36 @@
+.addUser {
+    background-color: hsl(var(--background),
+                        var(--layer1));
+    border: 1px solid hsl(var(--background),
+                        var(--layer2));
+    box-shadow: 0 0 1rem hsl(var(--background),
+                           calc(var(--layer0) - 5%));
+    width: 90%;
+    max-width: 34rem;
+    min-width: 17rem;
+    margin: 1rem auto;
+    padding: 1rem;
+}
+
+.toggleForm {
+    background-color: hsla(var(--accent), 1);
+    color: hsl(var(--color),
+            calc(100% - var(--layer2)));
+    font-size: 1.2em;
+    padding: 1.75em 0.25em;
+    border: none;
+    border-radius: 10rem;
+    outline: 2px solid hsl(300, 20%, 40%);
+    display: block;
+    margin: 0 auto;
+}
+
+.toggleForm:focus,
+.toggleForm:hover {
+    background-color: hsla(var(--accent), 0.9);
+    outline-offset: 4px;
+}
+
+.toggleForm:active {
+    outline-offset: 2px;
+}

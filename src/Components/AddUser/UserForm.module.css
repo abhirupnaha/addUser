@@ -1,0 +1,82 @@
+.form {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+    grid-template-rows: repeat(auto-fit, 1fr);
+    gap: 1rem;
+}
+
+.form__action {
+    position: relative;
+    color: hsl(var(--color),
+            calc(100% - var(--layer2)));
+}
+
+.marks, .roll {
+    min-width: 6rem;
+}
+
+.input + label {
+    position: absolute;
+    font-size: 0.75rem;
+    font-weight: 600;
+    top: -2px;
+    left: 5%;
+    transform: translateY(-50%);
+    background-color: hsla(var(--accent), 1);
+    padding: 1px 3px;
+    opacity: 1;
+    transition: opacity 150ms ease-out;
+    border-radius: 0.25em;
+}
+
+.input:placeholder-shown + label {
+    font-size: 0.9em;
+    font-weight: 400;
+    top: 25%; left: 5%;
+    transform: translate(-5%, -25%);
+    background-color: transparent;
+    opacity: 0;
+}
+
+.input {
+    color: hsl(var(--color),
+            calc(100% - var(--layer3)));
+    font-size: 1.2em;
+    width: 100%;
+    padding: 0.4em 0.25em 0.25em;
+    border-radius: 0.25em;
+    border: none;
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 2px solid hsl(var(--background),
+                        var(--layer4)); 
+}
+
+.input:focus {
+    outline: 2px solid hsl(var(--accent));
+    border: 2px solid transparent;
+}
+
+.form__button {
+    justify-self: end;
+}
+
+button[type="submit"] {
+    background-color: hsla(var(--accent), 1);
+    color: hsl(var(--color),
+            calc(100% - var(--layer2)));
+    font-size: 1.2em;
+    padding: 0.25em 1em;
+    border: none;
+    border-radius: 0.35em;
+    outline: 2px solid hsl(300, 20%, 40%);
+}
+
+button[type="submit"]:focus,
+button[type="submit"]:hover {
+    background-color: hsla(var(--accent), 0.9);
+    outline-offset: 4px;
+}
+
+button[type="submit"]:active {
+    outline-offset: 2px;
+}

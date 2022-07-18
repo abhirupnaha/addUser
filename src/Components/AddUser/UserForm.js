@@ -1,0 +1,95 @@
+import {useState} from "react";
+
+import style from "./UserForm.module.css";
+
+export default function UserForm(props) {
+    const [user, setUser] = useState({
+        name: "",
+        roll: "",
+        marks: ""
+    });
+
+    function nameHandler(event) {
+        setUser(prevState => ({
+            ...prevState,
+            name: event.target.value
+        }));
+    }
+
+    function rollHandler(event) {
+        setUser(prevState => ({
+            ...prevState,
+            roll: event.target.value
+        }));
+    }
+
+    function marksHandler(event) {
+        setUser(prevState => ({
+            ...prevState,
+            marks: event.target.value
+        }));
+    }
+
+    function submitHandler(event) {
+        event.preventDefault();
+        props.onSaveUser(user);
+        setUser({
+            name: "",
+            roll: "",
+            marks: ""
+        })
+    }
+
+    return (
+        <form
+            action="#"
+            className={style["form"]}
+            onSubmit={submitHandler}
+        >
+            <div className={style["form__action"]}>
+                <input
+                    type="text"
+                    id="form__name"
+                    className={style["form__name", "input"]}
+                    placeholder="Name"
+                    value={user.name}
+                    onChange={nameHandler}
+                    required
+                />
+                <label htmlFor="form__name"> Name </label>
+            </div>
+            <div className={style["form__action"]}>
+                <input
+                    type="number"
+                    id="form__roll"
+                    className={style["form__roll", "input"]}
+                    placeholder="Roll No"
+                    value={user.roll}
+                    onChange={rollHandler}
+                    required
+                />
+                <label htmlFor="form__roll"> Roll No </label>
+            </div>
+            <div className={style["form__action"]}>
+                <input
+                    type="text"
+                    id="number"
+                    className={style["form__marks", "input"]}
+                    placeholder="Marks"
+                    value={user.marks}
+                    onChange={marksHandler}
+                    required
+                />
+                <label htmlFor="form__marks"> Marks </label>
+            </div>
+            <span className={style["form__action", "form__button"]}>
+                <button
+                    type="submit"
+                    className={style["form__submit"]}
+                >
+                    Add User
+                </button>
+            </span>
+        </form>
+    );
+}

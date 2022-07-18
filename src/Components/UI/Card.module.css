@@ -1,0 +1,22 @@
+.card--head {
+    display: grid;
+    grid-template-rows: min-content 1fr;
+}
+
+.card__title {
+    background-color: hsl(var(--accent));
+    border-radius: 1em 1em 0 0;
+    border: 1px solid hsl(var(--accent));
+    padding: 0.5em 1em;
+}
+
+.card__body {
+    background-color: hsla(var(--accent), 0.2);
+    border-radius: 0 0 1em 1em;
+    border: 1px solid hsl(var(--accent));
+    padding: 0.5em;
+}
+
+.card {
+    border-radius: 1rem;
+}

@@ -1,0 +1,26 @@
+.userList {
+    width: 90%;
+    max-width: 34rem;
+    min-width: 17rem;
+    padding: 1.5rem;
+    margin: 1rem auto;
+    background-color: hsl(var(--background),
+                        var(--layer1));
+    border: 1px solid hsl(var(--background),
+                        calc(5% + var(--layer1)));
+    box-shadow: 0 0 1em hsl(var(--shadow),
+                            calc(var(--layer0) - 5%));
+
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+}
+
+.userList h2 {
+    color: hsl(var(--color), 75%);
+}
+
+.fallback {
+    text-align: center;
+    color: hsl(var(--color), calc(100% - var(--layer4)));
+}
