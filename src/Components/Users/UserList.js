@@ -17,7 +17,7 @@ export default function UserList(props) {
 
     const deleteHandler = (id) => props.onRemoveUser(id);
 
-    if(props.users.length === 0) {
+    if(sortUsers.length === 0) {
         return (
             <Card
                 type={"abc"}
