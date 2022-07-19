@@ -61,13 +61,13 @@ function App() {
 	}
 
 	return (
-		<div>
+		<>
 			<AddUser onSaveUser={addUserHandler} />
 			<UserList
 				users={data}
 				onRemoveUser={removeUserHandler}
 			/>
-		</div>
+		</>
 	);
 }
 

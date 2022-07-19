@@ -62,7 +62,7 @@ export default function User(props) {
     }
 
     return (
-        <div>
+        <>
             {
                 toggle &&
                 warning
@@ -92,6 +92,6 @@ export default function User(props) {
                 >
                 </button>
             </Card>
-        </div>
+        </>
     );
 }
