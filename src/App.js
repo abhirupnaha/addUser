@@ -50,13 +50,20 @@ function App() {
 			...prev,
 			user
 		])
-		console.log(user);
+	}
+
+	function removeUserHandler(id) {
+		setData((prevState) => {
+			return (
+				prevState.filter( (prev) => prev.id !== parseInt(id) )
+			);
+		})
 	}
 
 	return (
 		<div>
 			<AddUser onSaveUser={addUserHandler} />
-			<UserList users={data} />
+			<UserList users={data} onRemoveUser={removeUserHandler} />
 		</div>
 	);
 }

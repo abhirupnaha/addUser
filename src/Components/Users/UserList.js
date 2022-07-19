@@ -3,6 +3,8 @@ import User from "./User";
 import Card from "../UI/Card";
 
 export default function UserList(props) {
+    const deleteHandler = (id) => props.onRemoveUser(id);
+
     if(props.users.length === 0) {
         return (
             <Card
@@ -19,16 +21,20 @@ export default function UserList(props) {
             id={style["userList"]}
         >
             <h2> User List </h2>
-            {props.users.map(user => {
-                return (
-                    <User
-                        key={user.id}
-                        name={user.name}
-                        roll={user.roll}
-                        marks={user.marks}
-                    />
-                );
-            })}
+            <ul>
+                {props.users.map(user => {
+                    return (
+                        <User
+                            key={user.id}
+                            id={user.id}
+                            name={user.name}
+                            roll={user.roll}
+                            marks={user.marks}
+                            onDelete={deleteHandler}
+                        />
+                    );
+                })}
+            </ul>
         </Card>
     );
 }

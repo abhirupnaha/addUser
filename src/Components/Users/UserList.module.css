@@ -24,3 +24,9 @@
     text-align: center;
     color: hsl(var(--color), calc(100% - var(--layer4)));
 }
+
+.userList ul{
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+}

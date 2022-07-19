@@ -40,6 +40,16 @@ export default function UserForm(props) {
         })
     }
 
+    function toggleFormHandler(event) {
+        event.preventDefault();
+        setUser({
+            name: "",
+            roll: "",
+            marks: ""
+        })
+        props.onToggleForm();
+    }
+
     return (
         <form
             action="#"
@@ -82,10 +92,18 @@ export default function UserForm(props) {
                 />
                 <label htmlFor="form__marks"> Marks </label>
             </div>
+
             <span className={style["form__action", "form__button"]}>
                 <button
+                    className={`${style["bttn--submit"]} ${style["bttn--cancel"]}`}
+                    onClick={toggleFormHandler}
+                >
+                    cancel
+                </button>
+
+                <button
                     type="submit"
-                    className={style["form__submit"]}
+                    className={style["bttn--submit"]}
                 >
                     Add User
                 </button>

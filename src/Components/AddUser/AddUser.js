@@ -13,7 +13,7 @@ export default function AddUser(props) {
     }
 
     function toggleHandler() {
-        setFormToggle(true);
+        setFormToggle(prevState => !prevState);
     }
 
     let content =
@@ -25,7 +25,7 @@ export default function AddUser(props) {
         </button>
 
     if(formToggle === true)
-        content = <UserForm onSaveUser={saveUserHandler} />
+        content = <UserForm onSaveUser={saveUserHandler} onToggleForm={toggleHandler}/>
 
     return (
         <Card
