@@ -26,16 +26,25 @@ export default function User(props) {
     }
 
     if(toggle) {
-        const m = `Are you sure want to delete user?
-                \nname: ${props.name}
-                \nroll no: ${props.roll}
-                \nmarks: ${props.marks}`;
+        // const m = `Are you sure want to delete user? 
+        //         \nname: ${props.name}
+        //         \nroll no: ${props.roll}
+        //         \nmarks: ${props.marks}`;
+        const m = [
+            "Are you sure you want to delete the following user?",
+            <br />,
+            `name: ${props.name}`,
+            <br/>,
+            `roll no: ${props.roll}`,
+            <br/>,
+            `marks: ${props.marks}`
+        ]
 
         warning = (
             <Modal message={m} onCancel={cancelDeleteHandler} id={style["modal"]}>
                 <div className={style["modal__action"]}>
                     <button
-                        className={`${style["bttn"]} ${style["bttn--delete"]}`}
+                        className={`${style["bttn"]} ${style["bttn--accept"]}`}
                         onClick={deleteHandler}
                     >
                         Ok

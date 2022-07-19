@@ -12,7 +12,7 @@
                             calc(var(--layer0) - 5%));
 
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
     gap: 1rem;
 }
 
@@ -23,10 +23,33 @@
 .fallback {
     text-align: center;
     color: hsl(var(--color), calc(100% - var(--layer4)));
+    grid-column: 1/-1;
 }
 
 .userList ul{
     display: grid;
     grid-template-columns: 1fr;
     gap: 1rem;
+    grid-column: 1/-1;
+}
+
+.sort-user {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.5em;
+    font-size: 1.2rem;
+    color: hsl(var(--color), 75%);
+    font-weight: bolder;
+}
+
+.sort-user label {
+    align-self: end;
+}
+
+#sort {
+    background-color: hsl(var(--background), 60%);
+    border: none;
+    border-radius: 0.5em;
+    font-size: 1rem;
+    padding: 0.1em 0.25em;
 }

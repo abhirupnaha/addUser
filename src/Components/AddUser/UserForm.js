@@ -19,14 +19,14 @@ export default function UserForm(props) {
     function rollHandler(event) {
         setUser(prevState => ({
             ...prevState,
-            roll: event.target.value
+            roll: parseInt(event.target.value)
         }));
     }
 
     function marksHandler(event) {
         setUser(prevState => ({
             ...prevState,
-            marks: event.target.value
+            marks: parseInt(event.target.value)
         }));
     }
 
@@ -60,7 +60,7 @@ export default function UserForm(props) {
                 <input
                     type="text"
                     id="form__name"
-                    className={style["form__name", "input"]}
+                    className={`${style["form__name"]} ${style["input"]}`}
                     placeholder="Name"
                     value={user.name}
                     onChange={nameHandler}
@@ -72,7 +72,7 @@ export default function UserForm(props) {
                 <input
                     type="number"
                     id="form__roll"
-                    className={style["form__roll", "input"]}
+                    className={`${style["form__roll"]} ${style["input"]}`}
                     placeholder="Roll No"
                     value={user.roll}
                     onChange={rollHandler}
@@ -82,9 +82,9 @@ export default function UserForm(props) {
             </div>
             <div className={style["form__action"]}>
                 <input
-                    type="text"
+                    type="number"
                     id="number"
-                    className={style["form__marks", "input"]}
+                    className={`${style["form__marks"]} ${style["input"]}`}
                     placeholder="Marks"
                     value={user.marks}
                     onChange={marksHandler}
@@ -93,7 +93,7 @@ export default function UserForm(props) {
                 <label htmlFor="form__marks"> Marks </label>
             </div>
 
-            <span className={style["form__action", "form__button"]}>
+            <span className={`${style["form__action"]} ${style["form__button"]}`}>
                 <button
                     className={`${style["bttn--submit"]} ${style["bttn--cancel"]}`}
                     onClick={toggleFormHandler}
