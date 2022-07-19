@@ -71,7 +71,6 @@
 .modal__action {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(8rem, 1fr));
-    grid-template-rows: repeat(auto-fit, minmax(2em, 1fr));
     gap: 1em;
     justify-content: center;
 }
@@ -84,6 +83,7 @@
     outline-offset: 0;
     font-weight: bolder;
     color: hsla(0, 0%, 90%, 0.8);
+    height: 2em;
 }
 
 .bttn:hover,

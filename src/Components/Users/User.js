@@ -29,7 +29,8 @@ export default function User(props) {
         const m = `Are you sure want to delete user?
                 \nname: ${props.name}
                 \nroll no: ${props.roll}
-                \nmarks: ${props.marks}`
+                \nmarks: ${props.marks}`;
+
         warning = (
             <Modal message={m} onCancel={cancelDeleteHandler} id={style["modal"]}>
                 <div className={style["modal__action"]}>
@@ -41,9 +42,11 @@ export default function User(props) {
                     </button>
 
                     <button
-                    className={`${style["bttn"]} ${style["bttn--cancel"]}`}
-                    onClick={cancelDeleteHandler}
-                    > Cancel </button>
+                        className={`${style["bttn"]} ${style["bttn--cancel"]}`}
+                        onClick={cancelDeleteHandler}
+                    >
+                        Cancel
+                    </button>
                 </div>
             </Modal>
         )
