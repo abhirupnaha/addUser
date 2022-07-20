@@ -1,6 +1,7 @@
 import style from "./Modal.module.css";
+import ReactDOM from "react-dom";
 
-export default function Modal(props) {
+function FullScreenModal(props) {
     const id = `${props.id} ${style["modal"]}`;
     return (
         <div className={style["fullscreen-backdrop"]} onClick={props.onCancel}>
@@ -14,4 +15,21 @@ export default function Modal(props) {
             </div>
         </div>
     );
+}
+
+export default function Modal(props) {
+    return (
+        <>
+            {ReactDOM.createPortal(
+                <FullScreenModal
+                    id={props.id}
+                    onCancel={props.onCancel}
+                    message={props.message}
+                >
+                    {props.children}
+                </FullScreenModal>,
+                document.getElementById("modal-root")
+            )}
+        </>
+    )
 }
